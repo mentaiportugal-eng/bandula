@@ -49,11 +49,13 @@ func _ready() -> void:
 		start_server(_port_arg(args))
 
 
+## Porta: --port=N, senão a variável de ambiente PORT (Render, Fly.io, Railway), senão 9080.
 static func _port_arg(args: PackedStringArray) -> int:
 	for a in args:
 		if a.begins_with("--port="):
 			return int(a.substr(7))
-	return DEFAULT_PORT
+	var env := OS.get_environment("PORT")
+	return int(env) if env.is_valid_int() else DEFAULT_PORT
 
 
 func is_online() -> bool:
@@ -61,13 +63,24 @@ func is_online() -> bool:
 	return p != null and not p is OfflineMultiplayerPeer and p.get_connection_status() == MultiplayerPeer.CONNECTION_CONNECTED and not is_server
 
 
-## Endereço por omissão: o mesmo anfitrião da página (ws:// ou wss:// em https).
+## Endereço por omissão do servidor, por esta ordem:
+##   1. ?servidor=wss://... no endereço da página (web)
+##   2. bandula/network/server_url no project.godot (servidor de produção, p. ex. no Render)
+##   3. o mesmo anfitrião da página na porta 9080 (servidor local / rede de casa)
 func default_url() -> String:
+	var host := "127.0.0.1"
+	var secure := false
 	if OS.has_feature("web"):
-		var host := str(JavaScriptBridge.eval("location.hostname", true))
-		var secure := str(JavaScriptBridge.eval("location.protocol", true)) == "https:"
-		return "%s://%s:%d" % ["wss" if secure else "ws", host if host != "" else "127.0.0.1", DEFAULT_PORT]
-	return "ws://127.0.0.1:%d" % DEFAULT_PORT
+		var m := RegEx.create_from_string("[?&]servidor=([^&]+)").search(str(JavaScriptBridge.eval("location.search", true)))
+		if m:
+			return m.get_string(1).uri_decode()
+		host = str(JavaScriptBridge.eval("location.hostname", true))
+		secure = str(JavaScriptBridge.eval("location.protocol", true)) == "https:"
+	var prod := str(ProjectSettings.get_setting("bandula/network/server_url", ""))
+	var local := host in ["", "localhost", "127.0.0.1"] or host.begins_with("192.168.") or host.begins_with("10.")
+	if prod != "" and not (OS.has_feature("web") and local):
+		return prod
+	return "%s://%s:%d" % ["wss" if secure else "ws", host if host != "" else "127.0.0.1", DEFAULT_PORT]
 
 
 static func clean_name(n: String) -> String:
