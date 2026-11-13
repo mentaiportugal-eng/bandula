@@ -1,0 +1,9 @@
+{
+  "outputDirectory": "web",
+  "headers": [
+    {
+      "source": "/(.*)\\.(wasm|pck)",
+      "headers": [{ "key": "Cache-Control", "value": "public, max-age=3600" }]
+    }
+  ]
+}
