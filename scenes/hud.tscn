@@ -1,0 +1,606 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/hud.gd" id="1_6fi6k"]
+[ext_resource type="Theme" path="res://ui/bandula_theme.tres" id="2_uo2fv"]
+[ext_resource type="Script" path="res://scripts/wanted_stars.gd" id="3_047uy"]
+[ext_resource type="Script" path="res://scripts/minimap_overlay.gd" id="4_5pdws"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hd3ao"]
+bg_color = Color(1, 0.62352943, 0.2627451, 1)
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+
+[node name="HUD" type="CanvasLayer" unique_id=1075155182]
+layer = 10
+script = ExtResource("1_6fi6k")
+
+[node name="Root" type="Control" parent="." unique_id=1467270044]
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+theme = ExtResource("2_uo2fv")
+
+[node name="TopLeft" type="PanelContainer" parent="Root" unique_id=2054385511]
+layout_mode = 0
+offset_left = 16.0
+offset_top = 16.0
+offset_right = 16.0
+offset_bottom = 16.0
+
+[node name="@VBoxContainer@89" type="VBoxContainer" parent="Root/TopLeft" unique_id=1340694250]
+layout_mode = 2
+
+[node name="Empire" type="Label" parent="Root/TopLeft/@VBoxContainer@89" unique_id=119842614]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 0.43529412, 0.43529412, 1)
+text = "Império"
+
+[node name="Day" type="Label" parent="Root/TopLeft/@VBoxContainer@89" unique_id=2079123540]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Dia 1"
+
+[node name="@HBoxContainer@92" type="HBoxContainer" parent="Root/TopLeft/@VBoxContainer@89" unique_id=448163606]
+layout_mode = 2
+
+[node name="@Label@93" type="Label" parent="Root/TopLeft/@VBoxContainer@89/@HBoxContainer@92" unique_id=511424234]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Aprovação"
+
+[node name="Approval" type="ProgressBar" parent="Root/TopLeft/@VBoxContainer@89/@HBoxContainer@92" unique_id=1388646204]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 14)
+layout_mode = 2
+size_flags_vertical = 4
+show_percentage = false
+
+[node name="@HBoxContainer@94" type="HBoxContainer" parent="Root/TopLeft/@VBoxContainer@89" unique_id=2049804344]
+layout_mode = 2
+
+[node name="@Label@95" type="Label" parent="Root/TopLeft/@VBoxContainer@89/@HBoxContainer@94" unique_id=1772092644]
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Energia   "
+
+[node name="Energy" type="ProgressBar" parent="Root/TopLeft/@VBoxContainer@89/@HBoxContainer@94" unique_id=2054102311]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(140, 14)
+layout_mode = 2
+size_flags_vertical = 4
+theme_override_styles/fill = SubResource("StyleBoxFlat_hd3ao")
+show_percentage = false
+
+[node name="Location" type="Label" parent="Root/TopLeft/@VBoxContainer@89" unique_id=624622433]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.18431373, 0.7490196, 0.6901961, 1)
+
+[node name="TopRight" type="VBoxContainer" parent="Root" unique_id=1563738152]
+layout_mode = 0
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -330.0
+offset_top = 16.0
+offset_right = -16.0
+
+[node name="Treasury" type="Label" parent="Root/TopRight" unique_id=1946440006]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 38
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.2, 0.33333334, 1)
+theme_override_constants/outline_size = 10
+text = "Kz 3.000"
+horizontal_alignment = 2
+
+[node name="Stars" type="Control" parent="Root/TopRight" unique_id=1291787726]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(160, 30)
+layout_mode = 2
+script = ExtResource("3_047uy")
+
+[node name="WantedInfo" type="Label" parent="Root/TopRight" unique_id=1323635728]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(1, 0.8156863, 0.85490197, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.2, 0.33333334, 1)
+theme_override_constants/outline_size = 6
+horizontal_alignment = 2
+
+[node name="Online" type="Label" parent="Root/TopRight" unique_id=681647424]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.7882353, 1, 0.8784314, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.2, 0.33333334, 1)
+theme_override_constants/outline_size = 6
+text = "Online"
+horizontal_alignment = 2
+
+[node name="VoiceStatus" type="Label" parent="Root/TopRight" unique_id=211933286]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(1, 0.9529412, 0.76862746, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.2, 0.33333334, 1)
+theme_override_constants/outline_size = 6
+horizontal_alignment = 2
+
+[node name="MinimapFrame" type="PanelContainer" parent="Root" unique_id=219435453]
+layout_mode = 0
+anchor_top = 1.0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = -256.0
+offset_right = 256.0
+offset_bottom = -16.0
+
+[node name="Stack" type="Control" parent="Root/MinimapFrame" unique_id=1116351176]
+custom_minimum_size = Vector2(216, 216)
+clip_contents = true
+layout_mode = 2
+
+[node name="MinimapContainer" type="SubViewportContainer" parent="Root/MinimapFrame/Stack" unique_id=1919229791]
+layout_mode = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+stretch = true
+
+[node name="MinimapViewport" type="SubViewport" parent="Root/MinimapFrame/Stack/MinimapContainer" unique_id=119771503]
+unique_name_in_owner = true
+positional_shadow_atlas_size = 0
+size = Vector2i(216, 216)
+
+[node name="MinimapCam" type="Camera3D" parent="Root/MinimapFrame/Stack/MinimapContainer/MinimapViewport" unique_id=1868632311]
+unique_name_in_owner = true
+transform = Transform3D(1, 0, 0, 0, -4.371139e-08, 1, 0, -1, -4.371139e-08, 0, 220, 0)
+projection = 1
+size = 320.0
+far = 600.0
+
+[node name="MinimapOverlay" type="Control" parent="Root/MinimapFrame/Stack" unique_id=951088863]
+unique_name_in_owner = true
+anchors_preset = 0
+anchor_right = 1.0
+anchor_bottom = 1.0
+mouse_filter = 2
+script = ExtResource("4_5pdws")
+
+[node name="@Label@102" type="Label" parent="Root/MinimapFrame/Stack" unique_id=755071301]
+layout_mode = 0
+offset_left = 100.0
+offset_top = 2.0
+offset_right = 100.0
+offset_bottom = 2.0
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.2, 0.33333334, 1)
+theme_override_constants/outline_size = 5
+text = "N"
+
+[node name="Speedo" type="PanelContainer" parent="Root" unique_id=1134640110]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -236.0
+offset_top = -116.0
+offset_right = -16.0
+offset_bottom = -16.0
+
+[node name="@VBoxContainer@103" type="VBoxContainer" parent="Root/Speedo" unique_id=1956239679]
+layout_mode = 2
+
+[node name="SpeedValue" type="Label" parent="Root/Speedo/@VBoxContainer@103" unique_id=888055318]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 46
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "0"
+horizontal_alignment = 2
+
+[node name="VehicleName" type="Label" parent="Root/Speedo/@VBoxContainer@103" unique_id=834995980]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "km/h"
+horizontal_alignment = 2
+
+[node name="Prompt" type="Label" parent="Root" unique_id=1337349910]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 1.0
+anchor_right = 0.5
+anchor_bottom = 1.0
+offset_left = -420.0
+offset_top = -150.0
+offset_right = 420.0
+offset_bottom = -70.0
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.2, 0.33333334, 1)
+theme_override_constants/outline_size = 8
+horizontal_alignment = 1
+vertical_alignment = 2
+
+[node name="Toasts" type="VBoxContainer" parent="Root" unique_id=241728731]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_right = 0.5
+offset_left = -360.0
+offset_top = 18.0
+offset_right = 360.0
+offset_bottom = 200.0
+mouse_filter = 2
+
+[node name="Banner" type="Label" parent="Root" unique_id=1832858135]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -500.0
+offset_top = -120.0
+offset_right = 500.0
+offset_bottom = 120.0
+pivot_offset = Vector2(500, 120)
+theme_override_font_sizes/font_size = 84
+theme_override_colors/font_color = Color(1, 0.3529412, 0.4745098, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.2, 0.33333334, 1)
+theme_override_constants/outline_size = 18
+text = "DETIDO"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Shop" type="PanelContainer" parent="Root" unique_id=464420330]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -320.0
+offset_top = -230.0
+offset_right = 320.0
+offset_bottom = 230.0
+
+[node name="@VBoxContainer@108" type="VBoxContainer" parent="Root/Shop" unique_id=2101514016]
+layout_mode = 2
+theme_override_constants/separation = 10
+
+[node name="ShopTitle" type="Label" parent="Root/Shop/@VBoxContainer@108" unique_id=295869498]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 26
+theme_override_colors/font_color = Color(0.8862745, 0.44705883, 0.35686275, 1)
+text = "Restaurante"
+
+[node name="@Label@110" type="Label" parent="Root/Shop/@VBoxContainer@108" unique_id=1708502865]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "O que vai ser hoje? (pago do tesouro do império)"
+
+[node name="ShopItems" type="VBoxContainer" parent="Root/Shop/@VBoxContainer@108" unique_id=1425625236]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="ShopFooter" type="Label" parent="Root/Shop/@VBoxContainer@108" unique_id=225608885]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+autowrap_mode = 3
+
+[node name="ShopClose" type="Button" parent="Root/Shop/@VBoxContainer@108" unique_id=158286154]
+unique_name_in_owner = true
+layout_mode = 2
+text = "Fechar (E)"
+
+[node name="ChatBox" type="VBoxContainer" parent="Root" unique_id=2032898067]
+clip_contents = true
+layout_mode = 0
+anchor_bottom = 1.0
+offset_left = 16.0
+offset_top = 160.0
+offset_right = 420.0
+offset_bottom = -268.0
+mouse_filter = 2
+alignment = 2
+
+[node name="ChatLog" type="VBoxContainer" parent="Root/ChatBox" unique_id=497980365]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+mouse_filter = 2
+alignment = 2
+
+[node name="ChatInput" type="LineEdit" parent="Root/ChatBox" unique_id=424377223]
+unique_name_in_owner = true
+layout_mode = 2
+placeholder_text = "Escreva e Enter para enviar · Esc cancela"
+max_length = 160
+
+[node name="Crosshair" type="Label" parent="Root" unique_id=825356731]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -20.0
+offset_top = -30.0
+offset_right = 20.0
+offset_bottom = 30.0
+theme_override_font_sizes/font_size = 44
+theme_override_colors/font_color = Color(1, 1, 1, 1)
+theme_override_colors/font_outline_color = Color(0.23137255, 0.2, 0.33333334, 1)
+theme_override_constants/outline_size = 8
+text = "+"
+horizontal_alignment = 1
+vertical_alignment = 1
+
+[node name="Decor" type="PanelContainer" parent="Root" unique_id=542050699]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 1.0
+anchor_top = 0.5
+anchor_right = 1.0
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -230.0
+offset_right = -16.0
+offset_bottom = 230.0
+
+[node name="@VBoxContainer@113" type="VBoxContainer" parent="Root/Decor" unique_id=277132147]
+layout_mode = 2
+
+[node name="@Label@114" type="Label" parent="Root/Decor/@VBoxContainer@113" unique_id=45665130]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(0.18431373, 0.7490196, 0.6901961, 1)
+text = "Modo Decoração"
+
+[node name="DecorList" type="Label" parent="Root/Decor/@VBoxContainer@113" unique_id=1729761463]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+
+[node name="DecorHelp" type="Label" parent="Root/Decor/@VBoxContainer@113" unique_id=1076500147]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.8862745, 0.44705883, 0.35686275, 1)
+autowrap_mode = 3
+
+[node name="NetMenu" type="PanelContainer" parent="Root" unique_id=164287078]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -260.0
+offset_top = -285.0
+offset_right = 260.0
+offset_bottom = 285.0
+
+[node name="@VBoxContainer@117" type="VBoxContainer" parent="Root/NetMenu" unique_id=1265879499]
+layout_mode = 2
+theme_override_constants/separation = 8
+
+[node name="@Label@118" type="Label" parent="Root/NetMenu/@VBoxContainer@117" unique_id=719305843]
+layout_mode = 2
+theme_override_font_sizes/font_size = 40
+theme_override_colors/font_color = Color(1, 0.43529412, 0.43529412, 1)
+text = "Bandula"
+
+[node name="@Label@119" type="Label" parent="Root/NetMenu/@VBoxContainer@117" unique_id=1852778543]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Luanda espera por si. Jogue sozinho ou encontre outros jogadores online e converse com eles."
+autowrap_mode = 3
+
+[node name="@Label@120" type="Label" parent="Root/NetMenu/@VBoxContainer@117" unique_id=967813747]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Nome"
+
+[node name="NetName" type="LineEdit" parent="Root/NetMenu/@VBoxContainer@117" unique_id=1625785331]
+unique_name_in_owner = true
+layout_mode = 2
+max_length = 20
+
+[node name="@Label@121" type="Label" parent="Root/NetMenu/@VBoxContainer@117" unique_id=1960791458]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Aparência"
+
+[node name="NetLook" type="OptionButton" parent="Root/NetMenu/@VBoxContainer@117" unique_id=427938462]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="@Label@132" type="Label" parent="Root/NetMenu/@VBoxContainer@117" unique_id=1483852059]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Microfone"
+
+[node name="NetVoice" type="OptionButton" parent="Root/NetMenu/@VBoxContainer@117" unique_id=499027162]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="@Label@143" type="Label" parent="Root/NetMenu/@VBoxContainer@117" unique_id=420420022]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Servidor"
+
+[node name="NetUrl" type="LineEdit" parent="Root/NetMenu/@VBoxContainer@117" unique_id=171852922]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="@HBoxContainer@144" type="HBoxContainer" parent="Root/NetMenu/@VBoxContainer@117" unique_id=425818536]
+layout_mode = 2
+
+[node name="NetSolo" type="Button" parent="Root/NetMenu/@VBoxContainer@117/@HBoxContainer@144" unique_id=1535026680]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jogar sozinho"
+
+[node name="NetJoin" type="Button" parent="Root/NetMenu/@VBoxContainer@117/@HBoxContainer@144" unique_id=2109628548]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Jogar online"
+
+[node name="NetStatus" type="Label" parent="Root/NetMenu/@VBoxContainer@117" unique_id=1532216135]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 14
+theme_override_colors/font_color = Color(0.18431373, 0.7490196, 0.6901961, 1)
+autowrap_mode = 3
+
+[node name="Menu" type="PanelContainer" parent="Root" unique_id=1828675092]
+unique_name_in_owner = true
+layout_mode = 0
+anchor_left = 0.5
+anchor_top = 0.5
+anchor_right = 0.5
+anchor_bottom = 0.5
+offset_left = -330.0
+offset_top = -230.0
+offset_right = 330.0
+offset_bottom = 230.0
+
+[node name="@VBoxContainer@146" type="VBoxContainer" parent="Root/Menu" unique_id=16618851]
+layout_mode = 2
+
+[node name="@Label@147" type="Label" parent="Root/Menu/@VBoxContainer@146" unique_id=1185611113]
+layout_mode = 2
+theme_override_font_sizes/font_size = 22
+theme_override_colors/font_color = Color(1, 0.43529412, 0.43529412, 1)
+text = "Menu do Império · Bandula (B fecha)"
+
+[node name="Tabs" type="TabContainer" parent="Root/Menu/@VBoxContainer@146" unique_id=711962478]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_vertical = 3
+current_tab = 0
+
+[node name="Propriedades" type="VBoxContainer" parent="Root/Menu/@VBoxContainer@146/Tabs" unique_id=810192238]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 0
+
+[node name="PlotList" type="ItemList" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades" unique_id=786658569]
+unique_name_in_owner = true
+custom_minimum_size = Vector2(0, 160)
+layout_mode = 2
+size_flags_vertical = 3
+
+[node name="PlotInfo" type="Label" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades" unique_id=711731499]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 16
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+autowrap_mode = 3
+
+[node name="@HBoxContainer@154" type="HBoxContainer" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades" unique_id=865599226]
+layout_mode = 2
+
+[node name="@Label@155" type="Label" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades/@HBoxContainer@154" unique_id=528104513]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Tamanho"
+
+[node name="BuildSize" type="OptionButton" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades/@HBoxContainer@154" unique_id=1329175519]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="@Label@166" type="Label" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades/@HBoxContainer@154" unique_id=648988806]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "  Negócio"
+
+[node name="BuildBusiness" type="OptionButton" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades/@HBoxContainer@154" unique_id=1712739644]
+unique_name_in_owner = true
+layout_mode = 2
+
+[node name="@HBoxContainer@177" type="HBoxContainer" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades" unique_id=162426321]
+layout_mode = 2
+
+[node name="BuildCasa" type="Button" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades/@HBoxContainer@177" unique_id=1462688710]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Construir Residência"
+
+[node name="BuildComercio" type="Button" parent="Root/Menu/@VBoxContainer@146/Tabs/Propriedades/@HBoxContainer@177" unique_id=839787119]
+unique_name_in_owner = true
+layout_mode = 2
+size_flags_horizontal = 3
+text = "Construir Comércio"
+
+[node name="Leis" type="VBoxContainer" parent="Root/Menu/@VBoxContainer@146/Tabs" unique_id=649257536]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 1
+
+[node name="TaxLabel" type="Label" parent="Root/Menu/@VBoxContainer@146/Tabs/Leis" unique_id=1186837854]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 20
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Imposto: 15%"
+
+[node name="TaxSlider" type="HSlider" parent="Root/Menu/@VBoxContainer@146/Tabs/Leis" unique_id=1948349537]
+unique_name_in_owner = true
+layout_mode = 2
+max_value = 40.0
+value = 15.0
+
+[node name="@Label@179" type="Label" parent="Root/Menu/@VBoxContainer@146/Tabs/Leis" unique_id=2076221329]
+layout_mode = 2
+theme_override_font_sizes/font_size = 15
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)
+text = "Impostos altos enchem o tesouro mas baixam a aprovação. Abaixo de 25% de aprovação começa uma greve geral."
+autowrap_mode = 3
+
+[node name="Relatório" type="VBoxContainer" parent="Root/Menu/@VBoxContainer@146/Tabs" unique_id=275493636]
+visible = false
+layout_mode = 2
+metadata/_tab_index = 2
+
+[node name="Report" type="Label" parent="Root/Menu/@VBoxContainer@146/Tabs/Relatório" unique_id=1979586791]
+unique_name_in_owner = true
+layout_mode = 2
+theme_override_font_sizes/font_size = 17
+theme_override_colors/font_color = Color(0.23137255, 0.2, 0.33333334, 1)

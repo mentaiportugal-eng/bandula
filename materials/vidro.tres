@@ -1,0 +1,27 @@
+[gd_resource type="ShaderMaterial" format=3]
+
+[ext_resource type="Shader" path="res://shaders/toon_stylized.gdshader" id="1_2vjx3"]
+
+[resource]
+render_priority = 0
+shader = ExtResource("1_2vjx3")
+shader_parameter/albedo = null
+shader_parameter/use_vertex_color = true
+shader_parameter/use_texture = null
+shader_parameter/uv_scale = null
+shader_parameter/roughness = 0.08
+shader_parameter/metallic = 0.35
+shader_parameter/shadow_edge = null
+shader_parameter/mid_edge = null
+shader_parameter/band_softness = null
+shader_parameter/mid_tone = null
+shader_parameter/sun_warmth = null
+shader_parameter/shadow_tint = null
+shader_parameter/shadow_fill = null
+shader_parameter/rim_color = null
+shader_parameter/rim_strength = 0.55
+shader_parameter/rim_power = null
+shader_parameter/gloss = 0.65
+shader_parameter/gloss_size = 0.9
+shader_parameter/emission_color = null
+shader_parameter/emission_energy = null

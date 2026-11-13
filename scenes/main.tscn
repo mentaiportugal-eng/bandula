@@ -1,0 +1,94 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/main.gd" id="1_a8y0u"]
+[ext_resource type="PackedScene" path="res://scenes/world/luanda.tscn" id="2_jkv2x"]
+[ext_resource type="PackedScene" path="res://scenes/player.tscn" id="3_jbj1t"]
+[ext_resource type="Script" path="res://scripts/player.gd" id="4_muem4"]
+[ext_resource type="PackedScene" path="res://scenes/camera_rig.tscn" id="5_dp3eg"]
+[ext_resource type="Script" path="res://scripts/camera_rig.gd" id="6_0ld40"]
+[ext_resource type="Script" path="res://scripts/traffic_manager.gd" id="7_gqmmt"]
+[ext_resource type="PackedScene" path="res://scenes/vehicles/buggy.tscn" id="8_yc10j"]
+[ext_resource type="PackedScene" path="res://scenes/vehicles/candongueiro.tscn" id="9_jscy8"]
+[ext_resource type="PackedScene" path="res://scenes/vehicles/guarda.tscn" id="10_pm3ni"]
+[ext_resource type="PackedScene" path="res://scenes/hud.tscn" id="11_y6deb"]
+[ext_resource type="Script" path="res://scripts/hud.gd" id="12_og1vs"]
+[ext_resource type="Script" path="res://scripts/net/remote_players.gd" id="13_2wyq8"]
+[ext_resource type="Script" path="res://scripts/interiors/decorator.gd" id="14_vxglm"]
+
+[sub_resource type="ProceduralSkyMaterial" id="ProceduralSkyMaterial_2f3dj"]
+sky_top_color = Color(0.12156863, 0.6117647, 1, 1)
+sky_horizon_color = Color(1, 0.9019608, 0.8, 1)
+sky_curve = 0.12
+ground_bottom_color = Color(0.7882353, 0.67058825, 0.5176471, 1)
+ground_horizon_color = Color(1, 0.9019608, 0.8, 1)
+
+[sub_resource type="Sky" id="Sky_yq6so"]
+sky_material = SubResource("ProceduralSkyMaterial_2f3dj")
+
+[sub_resource type="Environment" id="Environment_fv21b"]
+background_mode = 2
+sky = SubResource("Sky_yq6so")
+ambient_light_source = 3
+ambient_light_color = Color(0.7019608, 0.6509804, 1, 1)
+ambient_light_sky_contribution = 0.55
+ambient_light_energy = 0.75
+tonemap_mode = 3
+tonemap_white = 6.0
+glow_enabled = true
+glow_intensity = 0.5
+glow_strength = 0.9
+glow_bloom = 0.04
+glow_blend_mode = 2
+glow_hdr_threshold = 1.1
+fog_enabled = true
+fog_mode = 1
+fog_light_color = Color(1, 0.90588236, 0.83137256, 1)
+fog_density = 0.0012
+fog_sky_affect = 0.25
+fog_depth_begin = 160.0
+fog_depth_end = 560.0
+adjustment_enabled = true
+adjustment_contrast = 1.04
+adjustment_saturation = 1.1
+
+[node name="Main" type="Node3D" unique_id=2124543572]
+script = ExtResource("1_a8y0u")
+
+[node name="WorldEnvironment" type="WorldEnvironment" parent="." unique_id=1367687484]
+environment = SubResource("Environment_fv21b")
+
+[node name="SolEquatorial" type="DirectionalLight3D" parent="." unique_id=728475241]
+transform = Transform3D(0.6196443, -0.72787434, 0.2936662, 0, 0.37415296, 0.92736703, -0.7848827, -0.57463765, 0.23184176, 0, 0, 0)
+light_color = Color(1, 0.8509804, 0.6392157, 1)
+light_energy = 1.35
+shadow_enabled = true
+shadow_blur = 1.6
+directional_shadow_mode = 1
+directional_shadow_max_distance = 140.0
+
+[node name="Luanda" type="Node3D" parent="." unique_id=1078581949 instance=ExtResource("2_jkv2x")]
+
+[node name="Player" type="CharacterBody3D" parent="." unique_id=727177470 instance=ExtResource("3_jbj1t")]
+collision_layer = 2
+collision_mask = 5
+floor_max_angle = 0.87266463
+floor_snap_length = 0.4
+script = ExtResource("4_muem4")
+
+[node name="CameraRig" type="Node3D" parent="." unique_id=440126353 instance=ExtResource("5_dp3eg")]
+script = ExtResource("6_0ld40")
+
+[node name="Traffic" type="Node3D" parent="." unique_id=2101618184]
+script = ExtResource("7_gqmmt")
+civilian_scenes = Array[PackedScene]([ExtResource("8_yc10j"), ExtResource("9_jscy8")])
+police_scene = ExtResource("10_pm3ni")
+
+[node name="HUD" type="CanvasLayer" parent="." unique_id=1075155182 instance=ExtResource("11_y6deb")]
+layer = 10
+script = ExtResource("12_og1vs")
+
+[node name="RemotePlayers" type="Node3D" parent="." unique_id=1872893614]
+script = ExtResource("13_2wyq8")
+
+[node name="Decorator" type="Node3D" parent="." unique_id=314539411]
+script = ExtResource("14_vxglm")

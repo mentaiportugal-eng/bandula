@@ -1,0 +1,134 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/vehicle.gd" id="1_2geqa"]
+[ext_resource type="PackedScene" path="res://scenes/kit/carro_guarda.scn" id="2_fl42s"]
+[ext_resource type="PackedScene" path="res://scenes/kit/roda.scn" id="3_kgi16"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2hbvc"]
+size = Vector3(1.84, 1.04, 3.705)
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_dkgy2"]
+shading_mode = 0
+albedo_color = Color(2.5, 0.5, 0.8333334, 2.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_vcfx3"]
+material = SubResource("StandardMaterial3D_dkgy2")
+radius = 0.16
+height = 0.2
+
+[sub_resource type="StandardMaterial3D" id="StandardMaterial3D_ovc7o"]
+shading_mode = 0
+albedo_color = Color(0.5980392, 1.2058823, 2.5, 2.5)
+
+[sub_resource type="SphereMesh" id="SphereMesh_1qf4q"]
+material = SubResource("StandardMaterial3D_ovc7o")
+radius = 0.16
+height = 0.2
+
+[node name="ViaturadaGuarda" type="VehicleBody3D" unique_id=20731413]
+collision_layer = 4
+collision_mask = 7
+mass = 640.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.35, 0)
+script = ExtResource("1_2geqa")
+display_name = "Viatura da Guarda"
+max_engine_force = 4160.0
+top_speed_kmh = 105.0
+is_police = true
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=510441617]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.96, 0)
+shape = SubResource("BoxShape3D_2hbvc")
+
+[node name="Carrocaria" type="Node3D" parent="." unique_id=87273129 instance=ExtResource("2_fl42s")]
+
+[node name="RodaFE" type="VehicleWheel3D" parent="." unique_id=868733119]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.69, 1.25)
+use_as_steering = true
+wheel_roll_influence = 0.12
+wheel_radius = 0.44
+wheel_rest_length = 0.25
+suspension_travel = 0.25
+suspension_stiffness = 45.0
+suspension_max_force = 25600.0
+damping_compression = 0.88
+damping_relaxation = 0.98
+
+[node name="Malha" type="Node3D" parent="RodaFE" unique_id=489547439 instance=ExtResource("3_kgi16")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, 0, 0)
+
+[node name="RodaFD" type="VehicleWheel3D" parent="." unique_id=1118349823]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.69, 1.25)
+use_as_steering = true
+wheel_roll_influence = 0.12
+wheel_radius = 0.44
+wheel_rest_length = 0.25
+suspension_travel = 0.25
+suspension_stiffness = 45.0
+suspension_max_force = 25600.0
+damping_compression = 0.88
+damping_relaxation = 0.98
+
+[node name="Malha" type="Node3D" parent="RodaFD" unique_id=1121029527 instance=ExtResource("3_kgi16")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, 0, 0)
+
+[node name="RodaTE" type="VehicleWheel3D" parent="." unique_id=429740062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.85, 0.69, -1.25)
+use_as_traction = true
+wheel_roll_influence = 0.12
+wheel_radius = 0.44
+wheel_rest_length = 0.25
+suspension_travel = 0.25
+suspension_stiffness = 45.0
+suspension_max_force = 25600.0
+damping_compression = 0.88
+damping_relaxation = 0.98
+
+[node name="Malha" type="Node3D" parent="RodaTE" unique_id=2066235190 instance=ExtResource("3_kgi16")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, 0, 0)
+
+[node name="RodaTD" type="VehicleWheel3D" parent="." unique_id=1225340211]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.85, 0.69, -1.25)
+use_as_traction = true
+wheel_roll_influence = 0.12
+wheel_radius = 0.44
+wheel_rest_length = 0.25
+suspension_travel = 0.25
+suspension_stiffness = 45.0
+suspension_max_force = 25600.0
+damping_compression = 0.88
+damping_relaxation = 0.98
+
+[node name="Malha" type="Node3D" parent="RodaTD" unique_id=631804054 instance=ExtResource("3_kgi16")]
+transform = Transform3D(0.44, 0, 0, 0, 0.44, 0, 0, 0, 0.44, 0, 0, 0)
+
+[node name="Seat" type="Marker3D" parent="." unique_id=3708188]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.4, 0.52, 0.08)
+
+[node name="ExitPoint" type="Marker3D" parent="." unique_id=2146306608]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.1, 0.2, 0.08)
+
+[node name="CameraTarget" type="Marker3D" parent="." unique_id=1031768482]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)
+
+[node name="Sirene" type="Node3D" parent="." unique_id=189584665]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 2.05, -0.25)
+
+[node name="Vermelha" type="OmniLight3D" parent="Sirene" unique_id=1333577664]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.36, 0.1, 0)
+light_color = Color(1, 0.2, 0.33333334, 1)
+light_energy = 3.0
+omni_range = 9.0
+
+[node name="Lampada" type="MeshInstance3D" parent="Sirene/Vermelha" unique_id=631425063]
+mesh = SubResource("SphereMesh_vcfx3")
+
+[node name="Azul" type="OmniLight3D" parent="Sirene" unique_id=1603624870]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.36, 0.1, 0)
+light_color = Color(0.23921569, 0.48235294, 1, 1)
+light_energy = 3.0
+omni_range = 9.0
+
+[node name="Lampada" type="MeshInstance3D" parent="Sirene/Azul" unique_id=1215545973]
+mesh = SubResource("SphereMesh_1qf4q")

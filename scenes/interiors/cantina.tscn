@@ -1,0 +1,401 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interiors/interior.gd" id="1_kl1cb"]
+[ext_resource type="ArrayMesh" path="res://scenes/interiors/sala_cantina.res" id="2_fk1ak"]
+[ext_resource type="Script" path="res://scripts/interiors/interactable_furniture.gd" id="3_k0vmj"]
+[ext_resource type="ArrayMesh" path="res://scenes/interiors/cadeira.res" id="4_bew5p"]
+[ext_resource type="Script" path="res://scripts/interiors/building_portal.gd" id="5_ige2j"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_qvltl"]
+size = Vector3(11, 0.2, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_kegws"]
+size = Vector3(11, 0.2, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6glt7"]
+size = Vector3(11, 3.6, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_vukw2"]
+size = Vector3(0.3, 3.6, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5pdbf"]
+size = Vector3(0.3, 3.6, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_clrgf"]
+size = Vector3(11, 3.6, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1tw1s"]
+size = Vector3(0.6, 1.4, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bw2tx"]
+size = Vector3(0.6, 1.4, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_syce8"]
+size = Vector3(4.65, 1.1, 0.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_xc3lr"]
+size = Vector3(1, 0.8, 3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ydy5s"]
+size = Vector3(1, 0.8, 3)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_yp63u"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gds44"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_c85j3"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_7lr0n"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_857ou"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_olwx5"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_0ge2d"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_1w0a6"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_upsch"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_3sw43"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_5lpkv"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dmtai"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_j36vu"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_2rfti"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_1qs0b"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5frp5"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_8dhhe"]
+size = Vector3(4.5, 2, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_am1n3"]
+size = Vector3(2.4, 2.4, 1.6)
+
+[node name="Cantina" type="Node3D" unique_id=235133497]
+script = ExtResource("1_kl1cb")
+interior_type = "cantina"
+display_name = "Cantina da Mamã Rosa"
+
+[node name="Sala" type="MeshInstance3D" parent="." unique_id=1964854447]
+mesh = ExtResource("2_fk1ak")
+
+[node name="Colisao" type="StaticBody3D" parent="." unique_id=2015089902]
+
+[node name="@CollisionShape3D@35" type="CollisionShape3D" parent="Colisao" unique_id=121675626]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_qvltl")
+
+[node name="@CollisionShape3D@36" type="CollisionShape3D" parent="Colisao" unique_id=1055326939]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7, 0)
+shape = SubResource("BoxShape3D_kegws")
+
+[node name="@CollisionShape3D@37" type="CollisionShape3D" parent="Colisao" unique_id=1419977546]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -4.65)
+shape = SubResource("BoxShape3D_6glt7")
+
+[node name="@CollisionShape3D@38" type="CollisionShape3D" parent="Colisao" unique_id=1367416534]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.15, 1.8, 0)
+shape = SubResource("BoxShape3D_vukw2")
+
+[node name="@CollisionShape3D@39" type="CollisionShape3D" parent="Colisao" unique_id=1355359840]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15, 1.8, 0)
+shape = SubResource("BoxShape3D_5pdbf")
+
+[node name="@CollisionShape3D@40" type="CollisionShape3D" parent="Colisao" unique_id=1450641306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 4.65)
+shape = SubResource("BoxShape3D_clrgf")
+
+[node name="@CollisionShape3D@41" type="CollisionShape3D" parent="Colisao" unique_id=170209106]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4, 0.7, 3.9)
+shape = SubResource("BoxShape3D_1tw1s")
+
+[node name="@CollisionShape3D@42" type="CollisionShape3D" parent="Colisao" unique_id=1262450423]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.7, 3.9)
+shape = SubResource("BoxShape3D_bw2tx")
+
+[node name="@CollisionShape3D@43" type="CollisionShape3D" parent="Colisao" unique_id=228914306]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0.55, -3.55)
+shape = SubResource("BoxShape3D_syce8")
+
+[node name="@CollisionShape3D@45" type="CollisionShape3D" parent="Colisao" unique_id=230341429]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 0.4, 0)
+shape = SubResource("BoxShape3D_xc3lr")
+
+[node name="@CollisionShape3D@55" type="CollisionShape3D" parent="Colisao" unique_id=1563013369]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 0.4, 0)
+shape = SubResource("BoxShape3D_ydy5s")
+
+[node name="Luz" type="OmniLight3D" parent="." unique_id=746695351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
+light_color = Color(1, 0.8509804, 0.6392157, 1)
+light_energy = 1.2
+omni_range = 9.0
+
+[node name="Assentos" type="Node3D" parent="." unique_id=193352639]
+
+[node name="Cadeira_01" type="Area3D" parent="Assentos" unique_id=1901862290]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.05, 0, -0.75)
+script = ExtResource("3_k0vmj")
+
+[node name="@CollisionShape3D@47" type="CollisionShape3D" parent="Assentos/Cadeira_01" unique_id=1720069696]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_yp63u")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Cadeira_01" unique_id=1293170905]
+mesh = ExtResource("4_bew5p")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Cadeira_01" unique_id=14954190]
+
+[node name="@CollisionShape3D@48" type="CollisionShape3D" parent="Assentos/Cadeira_01/Colisao" unique_id=425425458]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_gds44")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Cadeira_01" unique_id=37379001]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Cadeira_01" unique_id=435242065]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Cadeira_02" type="Area3D" parent="Assentos" unique_id=461647517]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.35, 0, -0.75)
+script = ExtResource("3_k0vmj")
+
+[node name="@CollisionShape3D@49" type="CollisionShape3D" parent="Assentos/Cadeira_02" unique_id=1048598502]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_c85j3")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Cadeira_02" unique_id=1077328545]
+mesh = ExtResource("4_bew5p")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Cadeira_02" unique_id=1184009117]
+
+[node name="@CollisionShape3D@50" type="CollisionShape3D" parent="Assentos/Cadeira_02/Colisao" unique_id=1665559161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_7lr0n")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Cadeira_02" unique_id=1829513339]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Cadeira_02" unique_id=878899968]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Cadeira_03" type="Area3D" parent="Assentos" unique_id=143045847]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, -3.05, 0, 0.75)
+script = ExtResource("3_k0vmj")
+
+[node name="@CollisionShape3D@51" type="CollisionShape3D" parent="Assentos/Cadeira_03" unique_id=816910132]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_857ou")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Cadeira_03" unique_id=1953801115]
+mesh = ExtResource("4_bew5p")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Cadeira_03" unique_id=1308184498]
+
+[node name="@CollisionShape3D@52" type="CollisionShape3D" parent="Assentos/Cadeira_03/Colisao" unique_id=1026805973]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_olwx5")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Cadeira_03" unique_id=1341348709]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Cadeira_03" unique_id=1174841496]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Cadeira_04" type="Area3D" parent="Assentos" unique_id=28997997]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -1.35, 0, 0.75)
+script = ExtResource("3_k0vmj")
+
+[node name="@CollisionShape3D@53" type="CollisionShape3D" parent="Assentos/Cadeira_04" unique_id=362625212]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_0ge2d")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Cadeira_04" unique_id=11774063]
+mesh = ExtResource("4_bew5p")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Cadeira_04" unique_id=140540558]
+
+[node name="@CollisionShape3D@54" type="CollisionShape3D" parent="Assentos/Cadeira_04/Colisao" unique_id=807303109]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_1w0a6")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Cadeira_04" unique_id=579824857]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Cadeira_04" unique_id=1106047314]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Cadeira_05" type="Area3D" parent="Assentos" unique_id=1100003225]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.35, 0, -0.75)
+script = ExtResource("3_k0vmj")
+
+[node name="@CollisionShape3D@57" type="CollisionShape3D" parent="Assentos/Cadeira_05" unique_id=973472875]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_upsch")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Cadeira_05" unique_id=1167536425]
+mesh = ExtResource("4_bew5p")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Cadeira_05" unique_id=988338163]
+
+[node name="@CollisionShape3D@58" type="CollisionShape3D" parent="Assentos/Cadeira_05/Colisao" unique_id=1186168254]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_3sw43")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Cadeira_05" unique_id=1615665871]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Cadeira_05" unique_id=1007719067]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Cadeira_06" type="Area3D" parent="Assentos" unique_id=1001392677]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.05, 0, -0.75)
+script = ExtResource("3_k0vmj")
+
+[node name="@CollisionShape3D@59" type="CollisionShape3D" parent="Assentos/Cadeira_06" unique_id=1715379018]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_5lpkv")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Cadeira_06" unique_id=1232589941]
+mesh = ExtResource("4_bew5p")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Cadeira_06" unique_id=160162918]
+
+[node name="@CollisionShape3D@60" type="CollisionShape3D" parent="Assentos/Cadeira_06/Colisao" unique_id=2061884042]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_dmtai")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Cadeira_06" unique_id=1413197216]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Cadeira_06" unique_id=1097061282]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Cadeira_07" type="Area3D" parent="Assentos" unique_id=1611100869]
+transform = Transform3D(-4.371139e-08, 0, 1, 0, 1, 0, -1, 0, -4.371139e-08, 1.35, 0, 0.75)
+script = ExtResource("3_k0vmj")
+
+[node name="@CollisionShape3D@61" type="CollisionShape3D" parent="Assentos/Cadeira_07" unique_id=1590600800]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_j36vu")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Cadeira_07" unique_id=1775152457]
+mesh = ExtResource("4_bew5p")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Cadeira_07" unique_id=325416078]
+
+[node name="@CollisionShape3D@62" type="CollisionShape3D" parent="Assentos/Cadeira_07/Colisao" unique_id=211308110]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_2rfti")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Cadeira_07" unique_id=1690917810]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Cadeira_07" unique_id=1600964961]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Cadeira_08" type="Area3D" parent="Assentos" unique_id=1086885780]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.05, 0, 0.75)
+script = ExtResource("3_k0vmj")
+
+[node name="@CollisionShape3D@63" type="CollisionShape3D" parent="Assentos/Cadeira_08" unique_id=842427684]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_1qs0b")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Cadeira_08" unique_id=136194307]
+mesh = ExtResource("4_bew5p")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Cadeira_08" unique_id=277870660]
+
+[node name="@CollisionShape3D@64" type="CollisionShape3D" parent="Assentos/Cadeira_08/Colisao" unique_id=1211217518]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_5frp5")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Cadeira_08" unique_id=612761103]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Cadeira_08" unique_id=1370129312]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Clientes" type="Node3D" parent="." unique_id=561770580]
+
+[node name="Balcao" type="Area3D" parent="." unique_id=1014483837]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 0, -3.55)
+script = ExtResource("3_k0vmj")
+kind = "counter"
+shop_type = "cantina"
+label = "Balcão"
+
+[node name="@CollisionShape3D@44" type="CollisionShape3D" parent="Balcao" unique_id=2057907918]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.2)
+shape = SubResource("BoxShape3D_8dhhe")
+
+[node name="Atendente" type="Marker3D" parent="Balcao" unique_id=1749665273]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.85)
+
+[node name="Menu" type="Label3D" parent="." unique_id=1497081426]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.6, 2.3, -4.42)
+pixel_size = 0.004
+modulate = Color(0.23137255, 0.2, 0.33333334, 1)
+outline_modulate = Color(1, 0.972549, 0.9254902, 1)
+text = "PRATO DO DIA
+Funge com feijão · Kz 60
+Sumo de múcua · Kz 40
+Gasosa gelada · Kz 25"
+font_size = 40
+outline_size = 10
+
+[node name="Letreiro" type="Label3D" parent="." unique_id=2018195568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -1.5, 3, -4.42)
+pixel_size = 0.004
+modulate = Color(0.24705882, 0.654902, 0.8784314, 1)
+outline_modulate = Color(1, 0.972549, 0.9254902, 1)
+text = "Cantina da Mamã Rosa"
+font_size = 60
+outline_size = 10
+
+[node name="@OmniLight3D@46" type="OmniLight3D" parent="." unique_id=1449812479]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -2.2, 2.7, 0)
+light_color = Color(1, 0.8509804, 0.6392157, 1)
+light_energy = 1.2
+omni_range = 4.5
+
+[node name="@OmniLight3D@56" type="OmniLight3D" parent="." unique_id=510953978]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.2, 2.7, 0)
+light_color = Color(1, 0.8509804, 0.6392157, 1)
+light_energy = 1.2
+omni_range = 4.5
+
+[node name="Entrada" type="Marker3D" parent="." unique_id=2010794703]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.05, 3.4)
+
+[node name="Saida" type="Area3D" parent="." unique_id=302622199]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+script = ExtResource("5_ige2j")
+is_exit = true
+
+[node name="@CollisionShape3D@65" type="CollisionShape3D" parent="Saida" unique_id=1074088538]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_am1n3")

@@ -1,0 +1,93 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/vehicle.gd" id="1_ijkrl"]
+[ext_resource type="PackedScene" path="res://scenes/kit/carro_buggy.scn" id="2_ns7ct"]
+[ext_resource type="PackedScene" path="res://scenes/kit/roda.scn" id="3_r687n"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_y3bfa"]
+size = Vector3(1.748, 0.8, 3.23)
+
+[node name="BuggyUrbano" type="VehicleBody3D" unique_id=1447367673]
+collision_layer = 4
+collision_mask = 7
+mass = 520.0
+center_of_mass_mode = 1
+center_of_mass = Vector3(0, 0.35, 0)
+script = ExtResource("1_ijkrl")
+display_name = "Buggy Urbano"
+max_engine_force = 3380.0
+
+[node name="CollisionShape3D" type="CollisionShape3D" parent="." unique_id=291825150]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.82, 0)
+shape = SubResource("BoxShape3D_y3bfa")
+
+[node name="Carrocaria" type="Node3D" parent="." unique_id=188656077 instance=ExtResource("2_ns7ct")]
+
+[node name="RodaFE" type="VehicleWheel3D" parent="." unique_id=572635527]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81, 0.67, 1.1)
+use_as_steering = true
+wheel_roll_influence = 0.12
+wheel_radius = 0.42
+wheel_rest_length = 0.25
+suspension_travel = 0.25
+suspension_stiffness = 45.0
+suspension_max_force = 20800.0
+damping_compression = 0.88
+damping_relaxation = 0.98
+
+[node name="Malha" type="Node3D" parent="RodaFE" unique_id=489547439 instance=ExtResource("3_r687n")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="RodaFD" type="VehicleWheel3D" parent="." unique_id=1815563161]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81, 0.67, 1.1)
+use_as_steering = true
+wheel_roll_influence = 0.12
+wheel_radius = 0.42
+wheel_rest_length = 0.25
+suspension_travel = 0.25
+suspension_stiffness = 45.0
+suspension_max_force = 20800.0
+damping_compression = 0.88
+damping_relaxation = 0.98
+
+[node name="Malha" type="Node3D" parent="RodaFD" unique_id=1852015054 instance=ExtResource("3_r687n")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="RodaTE" type="VehicleWheel3D" parent="." unique_id=682975504]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.81, 0.67, -1.1)
+use_as_traction = true
+wheel_roll_influence = 0.12
+wheel_radius = 0.42
+wheel_rest_length = 0.25
+suspension_travel = 0.25
+suspension_stiffness = 45.0
+suspension_max_force = 20800.0
+damping_compression = 0.88
+damping_relaxation = 0.98
+
+[node name="Malha" type="Node3D" parent="RodaTE" unique_id=742526571 instance=ExtResource("3_r687n")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="RodaTD" type="VehicleWheel3D" parent="." unique_id=472423824]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.81, 0.67, -1.1)
+use_as_traction = true
+wheel_roll_influence = 0.12
+wheel_radius = 0.42
+wheel_rest_length = 0.25
+suspension_travel = 0.25
+suspension_stiffness = 45.0
+suspension_max_force = 20800.0
+damping_compression = 0.88
+damping_relaxation = 0.98
+
+[node name="Malha" type="Node3D" parent="RodaTD" unique_id=2078346612 instance=ExtResource("3_r687n")]
+transform = Transform3D(0.42, 0, 0, 0, 0.42, 0, 0, 0, 0.42, 0, 0, 0)
+
+[node name="Seat" type="Marker3D" parent="." unique_id=1065211766]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0.38, 0.62, -0.12)
+
+[node name="ExitPoint" type="Marker3D" parent="." unique_id=2144985351]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 2.05, 0.2, -0.12)
+
+[node name="CameraTarget" type="Marker3D" parent="." unique_id=1493504054]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 0)

@@ -1,0 +1,49 @@
+; Bandula — jogo de mundo aberto em Luanda (Godot 4, renderer Compatibility / WebGL 2)
+config_version=5
+
+[application]
+
+config/name="Bandula"
+config/description="Sandbox de mundo aberto em Luanda, Angola: economia do império, Guarda de Bandula e condução arcade."
+run/main_scene="res://scenes/main.tscn"
+config/features=PackedStringArray("4.7", "GL Compatibility")
+
+[audio]
+
+driver/enable_input=true
+
+[autoload]
+
+GameManager="*res://scripts/game_manager.gd"
+Interiors="*res://scripts/interiors/interior_manager.gd"
+Network="*res://scripts/net/network.gd"
+Voice="*res://scripts/net/voice.gd"
+
+[display]
+
+window/size/viewport_width=1280
+window/size/viewport_height=720
+window/stretch/mode="canvas_items"
+window/stretch/aspect="expand"
+
+[physics]
+
+3d/physics_engine="GodotPhysics3D"
+common/physics_ticks_per_second=60
+
+[rendering]
+
+renderer/rendering_method="gl_compatibility"
+renderer/rendering_method.mobile="gl_compatibility"
+anti_aliasing/quality/msaa_3d=1
+lights_and_shadows/directional_shadow/size=2048
+lights_and_shadows/directional_shadow/soft_shadow_filter_quality=2
+textures/vram_compression/import_etc2_astc=true
+environment/defaults/default_clear_color=Color(1, 0.91, 0.84, 1)
+
+[layer_names]
+
+3d_physics/layer_1="mundo"
+3d_physics/layer_2="jogador"
+3d_physics/layer_3="veiculos"
+3d_physics/layer_4="interativos"

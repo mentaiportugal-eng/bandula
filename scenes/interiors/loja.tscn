@@ -1,0 +1,237 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/interiors/interior.gd" id="1_3y8vv"]
+[ext_resource type="ArrayMesh" path="res://scenes/interiors/sala_loja.res" id="2_h1g3b"]
+[ext_resource type="Script" path="res://scripts/interiors/interactable_furniture.gd" id="3_2gbla"]
+[ext_resource type="ArrayMesh" path="res://scenes/interiors/banco.res" id="4_0acjt"]
+[ext_resource type="Script" path="res://scripts/interiors/building_portal.gd" id="5_qgbfu"]
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_its6n"]
+size = Vector3(11, 0.2, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_e4ojm"]
+size = Vector3(11, 0.2, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_thgua"]
+size = Vector3(11, 3.6, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_cvpvm"]
+size = Vector3(0.3, 3.6, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_5o674"]
+size = Vector3(0.3, 3.6, 10)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bxq3m"]
+size = Vector3(11, 3.6, 0.3)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_dw7i1"]
+size = Vector3(0.6, 1.4, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ejcpt"]
+size = Vector3(0.6, 1.4, 0.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_egqbb"]
+size = Vector3(2.55, 1.1, 0.9)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_ajmvm"]
+size = Vector3(1, 1.6, 4.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_6lnj6"]
+size = Vector3(1, 1.6, 4.2)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_o83t1"]
+size = Vector3(1.4, 2.2, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_w1d14"]
+size = Vector3(1.4, 2.2, 0.8)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_gp2k7"]
+size = Vector3(0.5, 1, 2.4)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_sajh7"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_scd5p"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_lpa4w"]
+radius = 1.25
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_f5gjm"]
+size = Vector3(0.5, 0.5, 0.5)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_figni"]
+size = Vector3(2.4, 2, 1.6)
+
+[sub_resource type="BoxShape3D" id="BoxShape3D_bhaar"]
+size = Vector3(2.4, 2.4, 1.6)
+
+[node name="Loja" type="Node3D" unique_id=2128381595]
+script = ExtResource("1_3y8vv")
+interior_type = "loja"
+display_name = "Mini-Mercado Kianda"
+
+[node name="Sala" type="MeshInstance3D" parent="." unique_id=979618738]
+mesh = ExtResource("2_h1g3b")
+
+[node name="Colisao" type="StaticBody3D" parent="." unique_id=1673500102]
+
+[node name="@CollisionShape3D@66" type="CollisionShape3D" parent="Colisao" unique_id=725799910]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, -0.1, 0)
+shape = SubResource("BoxShape3D_its6n")
+
+[node name="@CollisionShape3D@67" type="CollisionShape3D" parent="Colisao" unique_id=1317285062]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.7, 0)
+shape = SubResource("BoxShape3D_e4ojm")
+
+[node name="@CollisionShape3D@68" type="CollisionShape3D" parent="Colisao" unique_id=890199799]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, -4.65)
+shape = SubResource("BoxShape3D_thgua")
+
+[node name="@CollisionShape3D@69" type="CollisionShape3D" parent="Colisao" unique_id=1826427255]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -5.15, 1.8, 0)
+shape = SubResource("BoxShape3D_cvpvm")
+
+[node name="@CollisionShape3D@70" type="CollisionShape3D" parent="Colisao" unique_id=125626201]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 5.15, 1.8, 0)
+shape = SubResource("BoxShape3D_5o674")
+
+[node name="@CollisionShape3D@71" type="CollisionShape3D" parent="Colisao" unique_id=130568370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.8, 4.65)
+shape = SubResource("BoxShape3D_bxq3m")
+
+[node name="@CollisionShape3D@72" type="CollisionShape3D" parent="Colisao" unique_id=1335482953]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.4, 0.7, 3.9)
+shape = SubResource("BoxShape3D_dw7i1")
+
+[node name="@CollisionShape3D@73" type="CollisionShape3D" parent="Colisao" unique_id=1421925732]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 4.4, 0.7, 3.9)
+shape = SubResource("BoxShape3D_ejcpt")
+
+[node name="@CollisionShape3D@74" type="CollisionShape3D" parent="Colisao" unique_id=708816712]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.3, 0.55, 2.2)
+shape = SubResource("BoxShape3D_egqbb")
+
+[node name="@CollisionShape3D@76" type="CollisionShape3D" parent="Colisao" unique_id=2104734565]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -3, 0.8, -1.2)
+shape = SubResource("BoxShape3D_ajmvm")
+
+[node name="@CollisionShape3D@77" type="CollisionShape3D" parent="Colisao" unique_id=966156941]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -0.6, 0.8, -1.2)
+shape = SubResource("BoxShape3D_6lnj6")
+
+[node name="@CollisionShape3D@78" type="CollisionShape3D" parent="Colisao" unique_id=3791874]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 1.8, 1.1, -4.05)
+shape = SubResource("BoxShape3D_o83t1")
+
+[node name="@CollisionShape3D@79" type="CollisionShape3D" parent="Colisao" unique_id=1208778313]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.4, 1.1, -4.05)
+shape = SubResource("BoxShape3D_w1d14")
+
+[node name="@CollisionShape3D@80" type="CollisionShape3D" parent="Colisao" unique_id=922537618]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, -4.7, 0.5, 2.1)
+shape = SubResource("BoxShape3D_gp2k7")
+
+[node name="Luz" type="OmniLight3D" parent="." unique_id=361623301]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3.1, 0)
+light_color = Color(1, 0.8509804, 0.6392157, 1)
+light_energy = 1.2
+omni_range = 9.0
+
+[node name="Assentos" type="Node3D" parent="." unique_id=811129240]
+
+[node name="Banco_01" type="Area3D" parent="Assentos" unique_id=251193506]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, 1.5)
+script = ExtResource("3_2gbla")
+label = "Banco"
+
+[node name="@CollisionShape3D@81" type="CollisionShape3D" parent="Assentos/Banco_01" unique_id=1086510337]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_sajh7")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Banco_01" unique_id=1485058333]
+mesh = ExtResource("4_0acjt")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Banco_01" unique_id=1276156801]
+
+[node name="@CollisionShape3D@82" type="CollisionShape3D" parent="Assentos/Banco_01/Colisao" unique_id=194251568]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_scd5p")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Banco_01" unique_id=976679332]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Banco_01" unique_id=1536464861]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Banco_02" type="Area3D" parent="Assentos" unique_id=1834406057]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, -4, 0, 2.7)
+script = ExtResource("3_2gbla")
+label = "Banco"
+
+[node name="@CollisionShape3D@83" type="CollisionShape3D" parent="Assentos/Banco_02" unique_id=1981186739]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.8, 0)
+shape = SubResource("SphereShape3D_lpa4w")
+
+[node name="Malha" type="MeshInstance3D" parent="Assentos/Banco_02" unique_id=2096225163]
+mesh = ExtResource("4_0acjt")
+
+[node name="Colisao" type="StaticBody3D" parent="Assentos/Banco_02" unique_id=1923301493]
+
+[node name="@CollisionShape3D@84" type="CollisionShape3D" parent="Assentos/Banco_02/Colisao" unique_id=619130330]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.25, 0)
+shape = SubResource("BoxShape3D_f5gjm")
+
+[node name="SitPoint" type="Marker3D" parent="Assentos/Banco_02" unique_id=1858121370]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, 0.22)
+
+[node name="Approach" type="Marker3D" parent="Assentos/Banco_02" unique_id=74405440]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0.05, -0.85)
+
+[node name="Clientes" type="Node3D" parent="." unique_id=678673845]
+
+[node name="Balcao" type="Area3D" parent="." unique_id=140040894]
+transform = Transform3D(-4.371139e-08, 0, -1, 0, 1, 0, 1, 0, -4.371139e-08, 3.3, 0, 2.2)
+script = ExtResource("3_2gbla")
+kind = "counter"
+shop_type = "loja"
+label = "Balcão"
+
+[node name="@CollisionShape3D@75" type="CollisionShape3D" parent="Balcao" unique_id=659891949]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1, 1.2)
+shape = SubResource("BoxShape3D_figni")
+
+[node name="Atendente" type="Marker3D" parent="Balcao" unique_id=1450826660]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, -0.85)
+
+[node name="Letreiro" type="Label3D" parent="." unique_id=77531019]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 3, -4.42)
+pixel_size = 0.004
+modulate = Color(0.49411765, 0.8509804, 0.34117648, 1)
+outline_modulate = Color(1, 0.972549, 0.9254902, 1)
+text = "Mini-Mercado Kianda"
+font_size = 60
+outline_size = 10
+
+[node name="Menu" type="Label3D" parent="." unique_id=1562181272]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 3.2, 2.5, -4.42)
+pixel_size = 0.004
+modulate = Color(0.23137255, 0.2, 0.33333334, 1)
+outline_modulate = Color(1, 0.972549, 0.9254902, 1)
+text = "MINI-MERCADO KIANDA
+Água · bolinhos · banana-pão
+Aberto todos os dias"
+font_size = 34
+outline_size = 10
+
+[node name="Entrada" type="Marker3D" parent="." unique_id=2095789688]
+transform = Transform3D(-1, 0, -8.742278e-08, 0, 1, 0, 8.742278e-08, 0, -1, 0, 0.05, 3.4)
+
+[node name="Saida" type="Area3D" parent="." unique_id=1901287903]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 0, 4)
+script = ExtResource("5_qgbfu")
+is_exit = true
+
+[node name="@CollisionShape3D@85" type="CollisionShape3D" parent="Saida" unique_id=267527424]
+transform = Transform3D(1, 0, 0, 0, 1, 0, 0, 0, 1, 0, 1.2, 0)
+shape = SubResource("BoxShape3D_bhaar")

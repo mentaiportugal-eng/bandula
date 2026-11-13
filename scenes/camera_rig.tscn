@@ -1,0 +1,28 @@
+[gd_scene format=3]
+
+[ext_resource type="Script" path="res://scripts/camera_rig.gd" id="1_txy7i"]
+
+[sub_resource type="SphereShape3D" id="SphereShape3D_hro8h"]
+radius = 0.25
+
+[node name="CameraRig" type="Node3D" unique_id=440126353]
+script = ExtResource("1_txy7i")
+
+[node name="Yaw" type="Node3D" parent="." unique_id=721802482]
+
+[node name="Pitch" type="Node3D" parent="Yaw" unique_id=1046697140]
+
+[node name="SpringArm3D" type="SpringArm3D" parent="Yaw/Pitch" unique_id=1075423701]
+shape = SubResource("SphereShape3D_hro8h")
+spring_length = 4.6
+margin = 0.3
+
+[node name="Camera3D" type="Camera3D" parent="Yaw/Pitch/SpringArm3D" unique_id=1260399818]
+current = true
+fov = 70.0
+far = 900.0
+
+[node name="InteractRay" type="RayCast3D" parent="Yaw/Pitch/SpringArm3D/Camera3D" unique_id=1347382855]
+target_position = Vector3(0, 0, -30)
+collision_mask = 9
+collide_with_areas = true
